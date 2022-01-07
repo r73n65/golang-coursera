@@ -1,7 +1,7 @@
 package main	
 import "fmt"
 
-func trunc() {
+func main() {
 	var x float32
 	fmt.Println("Enter a number: ")
 	_, err := fmt.Scanf("%f", &x)
@@ -11,8 +11,4 @@ func trunc() {
 	} else {
 		fmt.Println("Result: ", int(x))
 	}
-}
-
-func main() {
-	trunc()
 }

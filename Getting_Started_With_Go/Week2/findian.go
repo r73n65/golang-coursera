@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-func findian() {
+func main() {
 	fmt.Println("Enter a string: ")
 
 	// read input with spaces
@@ -22,8 +22,4 @@ func findian() {
 	} else {
 		fmt.Println("Not Found!")
 	}
-}
-
-func main() {
-	findian()
 }
