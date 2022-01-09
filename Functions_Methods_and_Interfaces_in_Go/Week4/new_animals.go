@@ -2,6 +2,8 @@ package main
 import (
 	"fmt"
 	"strings"
+	"bufio"
+	"os"
 )
 
 type Animal interface {
@@ -55,18 +57,23 @@ func main() {
 	
 	// Infinite Loop
 	for true {
-		// Ask user for input 
-		var command, name, action string
 		var invalid_flag bool
-		fmt.Print("> ")
-		fmt.Scan(&command, &name, &action)
 
-		// Convert input to lower case
-		command = strings.ToLower(command)
-		name = strings.ToLower(name)
-		action = strings.ToLower(action)
+		// Ask user for input 
+		scanner := bufio.NewScanner(os.Stdin)
+		fmt.Print("> ")
+		scanner.Scan()
+		fields := strings.Fields(strings.ToLower(scanner.Text()))
+		
+		if len(fields) != 3 {
+			fmt.Println("Error. Additional input has been entered.")
+			continue
+		}
 
 		var a Animal
+		command := fields[0]
+		name := fields[1]
+		action := fields[2]
 
 		if command == "newanimal" {
 			if action == "cow" {
