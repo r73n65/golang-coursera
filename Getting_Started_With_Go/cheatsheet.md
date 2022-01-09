@@ -16,8 +16,8 @@
 ### New
 * Alternate way to create a variable
 * `new()` function creates a variable and returns a pointer to the variable
-ptr := new(int)
-*ptr = 3 
+> ptr := new(int)
+> *ptr = 3 
 
 ## Variable Scope
 * Places in code where a variable can be accessed
@@ -84,50 +84,50 @@ Underlying array
 * cap() - returns the capacity
 * make() - create a slice (and array)
 * 2 argument: type, length = capacity
-sli = make([]int, 10)
+> sli = make([]int, 10)
 * 3 arguments: type, length, capacity
-sli = make([]int, 10, 15)
+> sli = make([]int, 10, 15)
 * append() - inserts into the underlying array 
 
 ## Maps
 * Implementation of a hash table
 * Use make()
-var idMap map[string]int 
-idMap = make(map[string]int) 
+> var idMap map[string]int 
+> idMap = make(map[string]int) 
 
 ### Accessing Maps
 * Referencing a value with [key]
 * Returns zero if key is not present
-fmt.Println(idMap["joe"])
+> fmt.Println(idMap["joe"])
 * Adding a key/value pair
-idMap["jane"] = 456
+> idMap["jane"] = 456
 * Deleting a key/value pair
-delete(idMap, "joe")
+> delete(idMap, "joe")
 * Two-value assignment tests for existence of the key
-id, p := idMap["joe"]
-id is value, p is the presence of key 
+> id, p := idMap["joe"]
+> id is value, p is the presence of key 
 * len() - returns number values
 
 ### Iterating through a map
-for key, value := range idMap {
-	fmt.Println(key, val)
-}
+> for key, value := range idMap {
+> 	fmt.Println(key, val)
+> }
 
 ## Struct
 * new() - to initialise struct
-p1 := new(Person)
+> p1 := new(Person)
 * struct literal - to initialise struct 
-p1 := Person (name: "joe", 
-addr: "s st", 
-phone: "123")
+> p1 := Person (name: "joe", 
+> addr: "s st", 
+> phone: "123")
 
 ## JSON Marshalling 
 * Marshal() - return JSON representation as []byte
-barr, err := json.Marshal(p1)
+> barr, err := json.Marshal(p1)
 
 ## JSON Unmarshalling 
 * Unmarshal() - converts a JSON []byte into a Go object
-err := json.Unmarshal(barr, &p2)
+> err := json.Unmarshal(barr, &p2)
 * Pointer to Go object is passed to Unmarshal()
 * Object must fit JSON [] byte (same struct)
 
@@ -141,7 +141,7 @@ err := json.Unmarshal(barr, &p2)
 
 ### ioutil File Read
 * "io/ioutil" package has basic functions 
-dat, e := ioutil.ReadFile("test.txt")
+> dat, e := ioutil.ReadFile("test.txt")
 * dat is []byte filled with contents of entire file
 * Explicit open/close are not needed 
 * Large files cause a problem 
@@ -150,8 +150,8 @@ dat, e := ioutil.ReadFile("test.txt")
 * Writes []byte to file 
 * Creates a file
 * Unix-style permission bytes
-dat = "Hello, world"
-err := ioutil.WriteFile("outfile.txt", dat, 0777)
+> dat = "Hello, world"
+> err := ioutil.WriteFile("outfile.txt", dat, 0777)
 
 ### os Package File Access
 * os.Open() - opens a file 
@@ -161,10 +161,10 @@ err := ioutil.WriteFile("outfile.txt", dat, 0777)
 
 ### os File Reading
 * Open and reading 
-f, err := os.Open("dt.txt")
-barr := make([]byte, 10)
-nb, err := f.Read(barr)
-f.Close()
+> f, err := os.Open("dt.txt")
+> barr := make([]byte, 10)
+> nb, err := f.Read(barr)
+> f.Close()
 * Reads and fills `barr`
 * `Read` returns # of bytes read
 * Maybe less than []byte length
@@ -172,7 +172,7 @@ f.Close()
 ### os File Create/Write
 * WriteString() - writes a string
 * Write() - writes a []byte (any unicode sequence)
-f, err := os.Create("outfile.txt")
-barr := []byte{1, 2, 3}
-nb, err := f.Write(barr)
-nb, err := f.WriteString("Hi")
+> f, err := os.Create("outfile.txt")
+> barr := []byte{1, 2, 3}
+> nb, err := f.Write(barr)
+> nb, err := f.WriteString("Hi")

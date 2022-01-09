@@ -24,12 +24,19 @@ func main() {
 	fmt.Println("You will be prompted 10 times to input a positive integer.")
 
 	for i := 0; i < 10; i++ {
-		fmt.Printf("Enter a number %f: ", i+1)
-		fmt.Scanln(&input)
+		fmt.Printf("Enter a number #%d: ", i+1)
+		_, err := fmt.Scanln(&input)
+
+		if err != nil {
+			fmt.Println(err)
+			break
+		}
+
 		if input < 0 {
-			fmt.Println("Error, please input a positive integer again: ")
+			fmt.Println("Negative integer is entered. Please input a positive integer again: ")
 			fmt.Scanln(&input)
 		}
+
 		slice = append(slice, input)
 	}
 
