@@ -23,26 +23,25 @@ func (a Animal) Speak() {
 }
 
 func main() {
-
-
 	// Mapping of all animals
-	animals := map[string]Animal{
+	animalMap := map[string]Animal{
 		"cow": Animal{"grass", "walk", "moo"},
 		"bird": Animal{"worms", "fly", "peep"},
 		"snake": Animal{"mice", "slither", "hsss"},
 	}
 	
+	// Infinite Loop
 	for true {
 		// Ask user for input 
-		var animal, action string
+		var name, action string
 		fmt.Print("> ")
-		fmt.Scan(&animal, &action)
+		fmt.Scan(&name, &action)
 
 		// Convert input to lower case
-		animal = strings.ToLower(animal)
+		name = strings.ToLower(name)
 		action = strings.ToLower(action)
 
-		a, ok := animals[animal]
+		a, ok := animalMap[name]
 
 		ok = ok && (action == "eat" || action == "move" || action == "speak")
 
