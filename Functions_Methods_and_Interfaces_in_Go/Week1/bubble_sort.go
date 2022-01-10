@@ -32,11 +32,6 @@ func main() {
 			break
 		}
 
-		if input < 0 {
-			fmt.Println("Negative integer is entered. Please input a positive integer again: ")
-			fmt.Scanln(&input)
-		}
-
 		slice = append(slice, input)
 	}
 
